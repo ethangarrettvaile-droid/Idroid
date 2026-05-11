@@ -96,3 +96,46 @@ input, textarea, select {
     color: black;
     font-weight: bold;
 }
+
+/* Toggle button at the bottom right */
+#toggle-creator {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 165, 0, 0.2);
+    border: 1px solid #ffa500;
+    color: #ffa500;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 100;
+    font-family: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+#toggle-creator:hover {
+    background: rgba(255, 165, 0, 0.4);
+    box-shadow: 0 0 15px #ffa500;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Holographic Checkbox styling */
+.mission-item input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ffa500;
+    background: transparent;
+    cursor: pointer;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.mission-item input[type="checkbox"]:checked {
+    background: #ffa500;
+    box-shadow: 0 0 10px #ffa500;
+}
