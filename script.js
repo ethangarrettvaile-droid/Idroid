@@ -77,6 +77,16 @@ async function deployMission() {
         document.getElementById('task-title').value = '';
         document.getElementById('task-desc').value = '';
         // Refresh the list automatically
-        loadMissions(type);
+        // Remove the lone loadMissions('main') line and replace it with this:
+window.onload = () => {
+    console.log("iDroid initialized. Checking for board...");
+    const board = document.getElementById('mission-board');
+    
+    if (board) {
+        loadMissions('main');
+    } else {
+        console.error("MISSION-BOARD NOT FOUND IN HTML. Visual output disabled.");
+    }
+};
     }
 }
