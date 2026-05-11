@@ -1,7 +1,9 @@
-// Replace these with your actual Supabase details
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
-const SUPABASE_KEY = 'YOUR_SUPABASE_ANON_KEY';
-const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+// Use the URL from your Data API settings
+const PROJECT_URL = 'https://upxkuvcwrpmafroqgmuf.supabase.co/rest/v1/'; 
+// Use the 'sb_publishable' key you found
+const ANON_KEY = 'sb_publishable_ZnFA_cJpNDy8DomvLcvWag_ZnCxPSUh'; 
+
+const _supabase = supabase.createClient(PROJECT_URL, ANON_KEY);
 
 async function loadMissions(typeFilter) {
     const board = document.getElementById('mission-board');
