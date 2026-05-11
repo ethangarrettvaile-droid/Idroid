@@ -46,6 +46,48 @@ setInterval(() => {
     document.getElementById('clock').innerText = new Date().toLocaleTimeString();
 }, 1000);
 
+function toggleCreator() {
+    const creator = document.getElementById('mission-creator');
+    const btn = document.getElementById('toggle-creator');
+    creator.classList.toggle('hidden');
+    btn.innerText = creator.classList.contains('hidden') ? '+ OPEN COMMS' : '- CLOSE COMMS';
+}
+
+async function deployMission() {
+    const title = document.getElementById('task-title').value;
+    const desc = document.getElementById('task-desc').value;
+    const type = document.getElementById('task-type').value;
+    const deadline = document.getElementById('task-deadline').value;
+    const subtasksRaw = document.getElementById('task-subtasks').value;
+    const prereq = document.getElementById('task-prereq').value;
+
+    // Convert comma-separated string into structured subtask objects
+    const subtaskList = subtasksRaw.split(',')
+        .map(s => s.trim())
+        .filter(s => s !== "")
+        .map(text => ({ text, completed: false }));
+
+    const { data, error } = await _supabase
+        .from('missions')
+        .insert([
+            { 
+                title, 
+                description: desc, 
+                type, 
+                deadline,
+                subtasks: subtaskList, 
+                prerequisite_id: prereq || null 
+            }
+        ]);
+
+    if (error) {
+        console.error("MISSION ABORTED:", error.message);
+    } else {
+        toggleCreator(); // Hide menu on success
+        loadMissions(type);
+    }
+}
+
 async function deployMission() {
     const title = document.getElementById('task-title').value;
     const desc = document.getElementById('task-desc').value;
