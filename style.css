@@ -67,3 +67,32 @@ button:hover {
     opacity: 0.3;
     border-style: dashed;
 }
+
+#mission-creator {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 2px dashed var(--idroid-blue);
+    background: rgba(0, 242, 255, 0.02);
+}
+
+input, textarea, select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--idroid-blue);
+    color: var(--idroid-blue);
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: inherit;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+#mission-creator button {
+    width: 100%;
+    background: var(--idroid-blue);
+    color: black;
+    font-weight: bold;
+}
