@@ -44,3 +44,38 @@ loadMissions('main');
 setInterval(() => {
     document.getElementById('clock').innerText = new Date().toLocaleTimeString();
 }, 1000);
+
+async function deployMission() {
+    const title = document.getElementById('task-title').value;
+    const desc = document.getElementById('task-desc').value;
+    const type = document.getElementById('task-type').value;
+    const deadline = document.getElementById('task-deadline').value;
+
+    if (!title) return alert("MISSION TITLE REQUIRED");
+
+    // This sends the data to Supabase
+    const { data, error } = await _supabase
+        .from('missions')
+        .insert([
+            { 
+                title: title, 
+                description: desc, 
+                type: type, 
+                deadline: deadline || null,
+                is_completed: false,
+                requirements: [] // Starts with no requirements
+            }
+        ]);
+
+    if (error) {
+        console.error("Deployment Failed:", error);
+        alert("UPLOAD FAILED: " + error.message);
+    } else {
+        console.log("Mission Logged.");
+        // Clear the form
+        document.getElementById('task-title').value = '';
+        document.getElementById('task-desc').value = '';
+        // Refresh the list automatically
+        loadMissions(type);
+    }
+}
