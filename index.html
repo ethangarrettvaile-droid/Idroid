@@ -16,36 +16,44 @@
         </header>
 
         <nav>
-            <button onclick="loadMissions('main')">MAIN MISSIONS</button>
-            <button onclick="loadMissions('side')">SIDE OPS</button>
+            <div class="nav-group">
+                <button onclick="setFilter('type', 'main')">MAIN</button>
+                <button onclick="setFilter('type', 'side')">SIDE</button>
+            </div>
+            <div class="nav-group filters">
+                <button id="btn-active" onclick="setFilter('status', 'active')">ACTIVE</button>
+                <button id="btn-cleared" onclick="setFilter('status', 'cleared')">CLEARED</button>
+                <button id="btn-trash" onclick="setFilter('status', 'trash')">TRASH</button>
+            </div>
+            <div class="nav-group">
+                <select id="sort-select" onchange="setSort(this.value)">
+                    <option value="created_at">DATE CREATED</option>
+                    <option value="deadline">DEADLINE</option>
+                </select>
+            </div>
         </nav>
 
         <main id="mission-board">
-            <div class="loading">ESTABLISHING CONNECTION...</div>
+            <div class="loading">ESTABLISHING UPLINK...</div>
         </main>
 
-        <button id="toggle-creator" onclick="toggleCreator()">+ OPEN COMMS</button>
+        <button id="toggle-creator" onclick="toggleCreator()">+ NEW INTEL</button>
 
         <section id="mission-creator" class="hidden">
-            <h2>SUBMIT INTEL</h2>
+            <h2 id="form-title">SUBMIT INTEL</h2>
+            <input type="hidden" id="edit-id">
             <input type="text" id="task-title" placeholder="MISSION NAME...">
             <textarea id="task-desc" placeholder="OBJECTIVES..."></textarea>
+            <input type="text" id="task-sub-input" placeholder="SUBTASKS (COMMA SEPARATED)...">
             
             <div class="form-row">
-                <!-- DYNAMIC DROPDOWN -->
-                <select id="task-prereq">
-                    <option value="">NO PREREQUISITE</option>
-                </select>
+                <select id="task-prereq"><option value="">NO PREREQUISITE</option></select>
                 <select id="task-type">
                     <option value="main">MAIN MISSION</option>
                     <option value="side">SIDE OP</option>
                 </select>
             </div>
-
-            <div class="form-row">
-                <input type="date" id="task-deadline">
-            </div>
-
+            <input type="date" id="task-deadline">
             <button class="deploy-btn" onclick="deployMission()">DEPLOY MISSION</button>
         </section>
     </div>
