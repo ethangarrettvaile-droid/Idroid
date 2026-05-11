@@ -139,3 +139,46 @@ input, textarea, select {
     background: #ffa500;
     box-shadow: 0 0 10px #ffa500;
 }
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.finished {
+    border-left: 10px solid #ffa500 !important; /* Gold for cleared missions */
+    opacity: 0.6;
+}
+
+.complete-btn {
+    font-size: 0.7em;
+    padding: 5px 10px;
+    border-color: #ffa500;
+    color: #ffa500;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+    font-size: 0.7em;
+    text-decoration: underline;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-top: 1px solid rgba(0, 242, 255, 0.1);
+    padding-top: 5px;
+}
+
+#mission-creator {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    z-index: 100;
+}
