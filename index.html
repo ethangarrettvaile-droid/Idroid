@@ -21,7 +21,13 @@
             <button onclick="loadMissions('side')">SIDE OPS</button>
         </nav>
 
-section id="mission-creator">
+        <!-- ADDED: This is the missing piece the script was looking for -->
+        <main id="mission-board">
+            <div class="loading">ESTABLISHING CONNECTION...</div>
+        </main>
+
+        <!-- FIXED: Added the missing '<' before section -->
+        <section id="mission-creator">
             <h2>SUBMIT INTEL (NEW MISSION)</h2>
             <input type="text" id="task-title" placeholder="MISSION NAME...">
             <textarea id="task-desc" placeholder="OBJECTIVES..."></textarea>
