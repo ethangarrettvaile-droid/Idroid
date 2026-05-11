@@ -21,27 +21,35 @@
             <button onclick="loadMissions('side')">SIDE OPS</button>
         </nav>
 
+        <button id="toggle-creator" onclick="toggleCreator()">+ OPEN COMMS</button>
+
         <!-- ADDED: This is the missing piece the script was looking for -->
         <main id="mission-board">
             <div class="loading">ESTABLISHING CONNECTION...</div>
         </main>
 
-        <!-- FIXED: Added the missing '<' before section -->
-        <section id="mission-creator">
-            <h2>SUBMIT INTEL (NEW MISSION)</h2>
-            <input type="text" id="task-title" placeholder="MISSION NAME...">
-            <textarea id="task-desc" placeholder="OBJECTIVES..."></textarea>
-            
-            <div class="form-row">
-                <select id="task-type">
-                    <option value="main">MAIN MISSION</option>
-                    <option value="side">SIDE OP</option>
-                </select>
-                <input type="date" id="task-deadline">
-            </div>
+<button id="toggle-creator" onclick="toggleCreator()">+ OPEN COMMS</button>
 
-            <button onclick="deployMission()">DEPLOY MISSION</button>
-        </section>
+<section id="mission-creator" class="hidden">
+    <h2>SUBMIT INTEL (NEW MISSION)</h2>
+    <input type="text" id="task-title" placeholder="MISSION NAME...">
+    <textarea id="task-desc" placeholder="OBJECTIVES..."></textarea>
+    
+    <div class="form-row">
+        <input type="text" id="task-prereq" placeholder="PREREQUISITE ID (OPTIONAL)...">
+        <input type="text" id="task-subtasks" placeholder="SUBTASKS (COMMA SEPARATED)...">
+    </div>
+
+    <div class="form-row">
+        <select id="task-type">
+            <option value="main">MAIN MISSION</option>
+            <option value="side">SIDE OP</option>
+        </select>
+        <input type="date" id="task-deadline">
+    </div>
+
+    <button onclick="deployMission()">DEPLOY MISSION</button>
+</section>
     </div>
     <script src="script.js"></script>
 </body>
