@@ -10,11 +10,12 @@ async function loadMissions(typeFilter) {
     board.innerHTML = 'RETRIEVING INTEL...';
 
     // Fetch all missions
-    const { data: missions, error } = await supabase
+    const { data: missions, error } = await _supabase
         .from('missions')
         .select('*');
 
     if (error) {
+        console.error("Database Error:", error);
         board.innerHTML = 'CONNECTION ERROR';
         return;
     }
