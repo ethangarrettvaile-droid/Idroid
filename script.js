@@ -1,5 +1,5 @@
 // Use the URL from your Data API settings
-const PROJECT_URL = 'https://upxkuvcwrpmafroqgmuf.supabase.co/rest/v1/'; 
+const PROJECT_URL = 'https://upxkuvcwrpmafroqgmuf.supabase.co'; 
 // Use the 'sb_publishable' key you found
 const ANON_KEY = 'sb_publishable_ZnFA_cJpNDy8DomvLcvWag_ZnCxPSUh'; 
 
